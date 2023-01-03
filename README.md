@@ -3,5 +3,5 @@
 ------ technologies used here ------
 
 Front-end : React
-Back-end: Flask
+Back-end: python Flask
 Database: PostgreSQL
