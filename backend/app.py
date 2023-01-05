@@ -3,7 +3,7 @@ from flask_sqlalchemy import Model, SQLAlchemy
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost:5432/library'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@localhost:5432/library'
 db = SQLAlchemy(app)
 
 
@@ -18,7 +18,7 @@ class Event(db.Model):
     def __init__(self, description):
         self.description = description
 
-
+db.create_all()
 # func used to get info to frontend
 def format_event(event):
     return {
