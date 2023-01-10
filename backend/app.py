@@ -3,12 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 # import models
-from models import Book, User
+# from models import Book, User
 
 # import apis
 import api.api_book as BookApi
 import api.api_user as UserApi
-
+import api.api_checkout as CheckoutApi
 
 app = Flask(__name__)
 
@@ -65,3 +65,4 @@ db.create_all()
 # Register the API blueprint
 app.register_blueprint(BookApi.api_book)
 app.register_blueprint(UserApi.api_user)
+app.register_blueprint(CheckoutApi.api_checkout)

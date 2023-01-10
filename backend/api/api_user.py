@@ -16,7 +16,7 @@ api_user = Blueprint('api_user', __name__)
 def create_user():
     if request.method == 'POST':
         data = request.get_json()
-        new_user = User(id=data['id'], username=data['username'],
+        new_user = User(username=data['username'],
                         email=data['email'], password=data['password'])
         db.session.add(new_user)
         db.session.commit()
@@ -29,9 +29,8 @@ def create_user():
         # Return the response
         return jsonify([user.serialize() for user in users])
 
+
 # getTING a specific user id
-
-
 @api_user.route('/users/<int:id>', methods=['GET',])
 def get_user(id):
     user = User.query.get(id)
