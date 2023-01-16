@@ -19,8 +19,8 @@ class CheckOut(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'book_id': self.book_id,
-            'checkout_date': self.check_out_date,
-            'due_date': self.due_date,
-            'return_date': self.return_date,
+            # 'checkout_date': self.check_out_date,
+            # 'due_date': self.due_date,
+            # 'return_date': self.return_date,
             'status': self.status
         }
