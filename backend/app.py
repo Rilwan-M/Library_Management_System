@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask_cors import CORS
 
 # import models
 # from models import Book, User
@@ -15,6 +16,7 @@ app = Flask(__name__)
 # Set up the database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/library'
 db = SQLAlchemy(app)
+CORS(app)
 
 
 # Define the Book model

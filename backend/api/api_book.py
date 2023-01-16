@@ -65,7 +65,7 @@ def books_api():
             })
 
         # Return the response
-        return jsonify({'books': response}), 200
+        return jsonify(response), 200
 
 
 @api_book.route('/books/<book_id>', methods=['PUT', 'DELETE'])
