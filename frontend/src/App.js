@@ -6,6 +6,7 @@ import Dashboard from "./components/Pages/Dashboard";
 
 import BookDetails from "./components/BookDetails";
 import UserDetails from "./components/UserDetails";
+import AddBook from "./components/Pages/AddBook";
 import CheckoutDetails from "./components/CheckoutDetails";
 import {
   BrowserRouter,
@@ -57,6 +58,7 @@ function App() {
             <Route path="/books" element={<BookDetails />} />
             <Route path="/users" element={<UserDetails />} />
             <Route path="/checkout" element={<CheckoutDetails />} />
+            <Route path="/addbook" element={<AddBook />} />
             {/* <Route path="/listmedicines" element={<ListMedicine />} />
             <Route path="/form" element={<Form />} />
             <Route path="/updatedetails" element={<UpdateDetails />} />

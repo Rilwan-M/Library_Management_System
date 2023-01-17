@@ -33,7 +33,7 @@ export const SidebarData = [
   {
     icon: UilBookOpen,
     heading: "Add a Book",
-    link: "users",
+    link: "addbook",
   },
   {
     icon: UilSwatchbook,
