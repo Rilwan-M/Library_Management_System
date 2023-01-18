@@ -4,6 +4,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AddBook = () => {
+  const navigate = useNavigate();
   const classes = useStyles();
   const [formData, setFormData] = useState({
     title: "",
@@ -74,6 +76,7 @@ const AddBook = () => {
         description: "",
         available: false,
       });
+      navigate("/");
     } catch (error) {
       console.error(error);
     }

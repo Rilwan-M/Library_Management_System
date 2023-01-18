@@ -8,6 +8,7 @@ import BookDetails from "./components/BookDetails";
 import UserDetails from "./components/UserDetails";
 import AddBook from "./components/Pages/AddBook";
 import CheckoutDetails from "./components/CheckoutDetails";
+import EditBook from "./components/Pages/EditBookDetails";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
             <Route path="/users" element={<UserDetails />} />
             <Route path="/checkout" element={<CheckoutDetails />} />
             <Route path="/addbook" element={<AddBook />} />
+            <Route path="/books/:id" element={<EditBook />} />
+
             {/* <Route path="/listmedicines" element={<ListMedicine />} />
             <Route path="/form" element={<Form />} />
             <Route path="/updatedetails" element={<UpdateDetails />} />
