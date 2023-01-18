@@ -118,9 +118,11 @@ const BasicTable = (props) => {
                   );
                 })}
                 <TableCell className="icon">
-                  <Link to={`/books/${item.id}`}>
-                    <UilEdit className="edit-icon" />
-                  </Link>
+                  {title === "Book Details" && (
+                    <Link to={`/books/${item.id}`}>
+                      <UilEdit className="edit-icon" />
+                    </Link>
+                  )}
 
                   <UilTrashAlt
                     className="delete-icon"

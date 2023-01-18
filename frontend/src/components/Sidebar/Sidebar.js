@@ -6,16 +6,18 @@ import { SidebarData } from "../Data/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { createBrowserHistory } from "history";
-
-const history = createBrowserHistory();
+import { useEffect } from "react";
 const Sidebar = () => {
-  function handleClick(path) {
-    history.push(path);
-  }
-  const [selected, setSelected] = useState(0);
-
+  // const [selected, setSelected] = useState(0);
   const [expanded, setExpaned] = useState(true);
+  const [selected, setSelected] = useState(
+    localStorage.getItem("selectedMenu") || 0
+  );
+
+  useEffect(() => {
+    localStorage.setItem("selectedMenu", selected);
+    // setSelected(0);
+  }, [selected]);
 
   const sidebarVariants = {
     true: {
