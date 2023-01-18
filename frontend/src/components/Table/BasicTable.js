@@ -6,7 +6,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import axios from "axios";
 import "./Table.css";
+
+import { UilEdit, UilTrashAlt } from "@iconscout/react-unicons";
 
 const makeStyle = (status) => {
   if (status === "Available") {
@@ -27,9 +30,21 @@ const makeStyle = (status) => {
   }
 };
 
+const handleDelete = (id) => {
+  axios
+    .delete(`http://localhost:5000/books/${id}`)
+    .then((res) => {
+      console.log(res);
+      console.log(res.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 const BasicTable = (props) => {
   const { data, title, headers } = props;
-  console.log(data);
+  // console.log(data);
   return (
     <div className="Table">
       <h3>{title}</h3>
@@ -84,9 +99,13 @@ const BasicTable = (props) => {
                   );
                 })}
 
-                {/* <span className="status" style={makeStyle(row.status)}>
-                    {row.status}
-                  </span> */}
+                <TableCell className="icon">
+                  <UilEdit className="edit-icon" />
+                  <UilTrashAlt
+                    className="delete-icon"
+                    onClick={() => handleDelete(item.id)}
+                  />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -22,7 +22,23 @@ th {
 .Details {
   color: #00b5ff !important;
 }
+.icon {
+  /* Add some padding */
+  padding: 5px;
+  /* Set the cursor to a pointer */
+  cursor: pointer;
+}
 
+/* Style the edit icon */
+.edit-icon {
+  color: green;
+}
+
+/* Style the delete icon */
+.delete-icon {
+  color: red;
+  margin-left: 10px;
+}
 @media screen and (max-width: 1200px) {
   .Table {
     width: 75%;

@@ -8,41 +8,7 @@ import BookDetails from "./components/BookDetails";
 import UserDetails from "./components/UserDetails";
 import AddBook from "./components/Pages/AddBook";
 import CheckoutDetails from "./components/CheckoutDetails";
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  Outlet,
-  Route,
-  RouterProvider,
-  Routes,
-} from "react-router-dom";
-
-// const AppLayout = () => {
-//   <>
-//     <Sidebar />
-//     <Outlet />
-//   </>;
-// };
-
-// export const router = createBrowserRouter([
-//   {
-//     element: <AppLayout />,
-//     children: [
-//       {
-//         path: "/",
-//         element: <Dashboard />,
-//       },
-//       {
-//         path: "/home",
-//         element: <Home />,
-//       },
-//       {
-//         path: "/books",
-//         element: <BookDetails />,
-//       },
-//     ],
-//   },
-// ]);
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
