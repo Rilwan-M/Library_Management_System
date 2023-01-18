@@ -10,8 +10,18 @@ import AddBook from "./components/Pages/AddBook";
 import CheckoutDetails from "./components/CheckoutDetails";
 import EditBook from "./components/Pages/EditBookDetails";
 import { Route, Routes } from "react-router-dom";
+import { useNavigate, useLocation, useCallback } from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
+  // const location = useLocation();
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (location.pathname !== "/") {
+  //     navigate("/", { replace: true });
+  //   }
+  // });
   return (
     <div className="App">
       <div className="AppGlass">
