@@ -40,7 +40,7 @@ function BookDetails({ books, isLoading, error, fetchBooks }) {
           </li>
          
         ))} */}
-      <BasicTable data={books} title="Book-Details" headers={headers} />
+      <BasicTable data={books} title="Book Details" headers={headers} />
     </ul>
   );
 }

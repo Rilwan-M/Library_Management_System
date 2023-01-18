@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./Table.css";
 
 import { UilEdit, UilTrashAlt } from "@iconscout/react-unicons";
@@ -30,16 +31,34 @@ const makeStyle = (status) => {
   }
 };
 
-const handleDelete = (id) => {
-  axios
-    .delete(`http://localhost:5000/books/${id}`)
-    .then((res) => {
-      console.log(res);
-      console.log(res.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+const handleDelete = (id, component) => {
+  switch (component) {
+    case "Book Details":
+      axios
+        .delete(`http://localhost:5000/books/${id}`)
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case "Book Readers":
+      axios
+        .delete(`http://localhost:5000/users/${id}`)
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
+    default:
+      break;
+  }
 };
 
 const BasicTable = (props) => {
@@ -98,12 +117,14 @@ const BasicTable = (props) => {
                     </TableCell>
                   );
                 })}
-
                 <TableCell className="icon">
-                  <UilEdit className="edit-icon" />
+                  <Link to={`/books/${item.id}`}>
+                    <UilEdit className="edit-icon" />
+                  </Link>
+
                   <UilTrashAlt
                     className="delete-icon"
-                    onClick={() => handleDelete(item.id)}
+                    onClick={() => handleDelete(item.id, title)}
                   />
                 </TableCell>
               </TableRow>
