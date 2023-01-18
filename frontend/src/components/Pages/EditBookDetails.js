@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
+
   formControl: {
     margin: theme.spacing(1),
     display: "flex",
@@ -25,6 +26,14 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 450,
     minWidth: 75,
   },
+  TextField: {
+    "&.Mui-focused": {
+      color: "#333",
+      fontWeight: "bold",
+      fontSize: "16px",
+    },
+  },
+
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
@@ -39,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ff1493",
     color: "white",
     "&:hover": {
-      backgroundColor: "#ffe4e1",
+      backgroundColor: "#ff69b4",
     },
   },
 }));
@@ -91,7 +100,7 @@ const EditBook = () => {
 
   return (
     <Grid container className={classes.grid} onSubmit={handleEdit}>
-      <Grid item xs={12}>
+      <Grid item className={classes.grid} xs={12}>
         <form className={classes.formControl}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
