@@ -35,9 +35,9 @@ export const SidebarData = [
     heading: "Checkout Books",
     link: "checkout",
   },
-  {
-    icon: UilSignout,
-    heading: "Sign Out",
-    link: "signout",
-  },
+  // {
+  //   icon: UilSignout,
+  //   heading: "Sign Out",
+  //   link: "signout",
+  // },
 ];

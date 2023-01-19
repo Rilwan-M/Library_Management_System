@@ -9,10 +9,20 @@ import UserDetails from "./components/UserDetails";
 import AddBook from "./components/Pages/AddBook";
 import CheckoutDetails from "./components/CheckoutDetails";
 import EditBook from "./components/Pages/EditBookDetails";
-import { Route, Routes } from "react-router-dom";
 import Login from "./components/Pages/Login";
 import Register from "./components/Pages/Register";
+
+import { Route, Routes } from "react-router-dom";
+
 function App() {
+  // const location = useLocation();
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (location.pathname !== "/") {
+  //     navigate("/", { replace: true });
+  //   }
+  // });
   return (
     <div className="App">
       <div className="AppGlass">
