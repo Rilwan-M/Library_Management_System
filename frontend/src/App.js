@@ -1,8 +1,10 @@
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 
+
 // component imporitng
 import GetStarted from "./components/Pages/GetStarted";
+
 import Dashboard from "./components/Pages/Dashboard";
 import BookDetails from "./components/BookDetails";
 import UserDetails from "./components/UserDetails";
@@ -15,14 +17,6 @@ import Register from "./components/Pages/Register";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  // const location = useLocation();
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (location.pathname !== "/") {
-  //     navigate("/", { replace: true });
-  //   }
-  // });
   return (
     <div className="App">
       <div className="AppGlass">

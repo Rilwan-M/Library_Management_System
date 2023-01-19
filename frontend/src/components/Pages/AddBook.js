@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ff1493",
     color: "white",
     "&:hover": {
-      backgroundColor: "#ffe4e1",
+      backgroundColor: "#ff69b4",
     },
   },
 }));
@@ -84,7 +84,7 @@ const AddBook = () => {
 
   return (
     <Grid container className={classes.grid}>
-      <Grid item xs={12}>
+      <Grid item className={classes.grid} xs={12}>
         <form className={classes.formControl} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
