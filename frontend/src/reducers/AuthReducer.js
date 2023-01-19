@@ -2,7 +2,7 @@ import {
   LOGIN,
   REGISTER,
   LOGINPROCESSING,
-  REGISTERINGZ,
+  REGISTERING,
 } from "../actions/actionType";
 
 export const reducer = (state = {}, action) => {
