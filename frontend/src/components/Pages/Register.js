@@ -34,18 +34,6 @@ class Register extends PureComponent {
                 {this.props.registered ? "Registered" : ""}
                 {this.props.registering && !this.props.registered ? "Registering" : ""}
                 <h1 className="heading">Create Account</h1>
-                {/* <div className="socialLogins">
-                    <button className="socialLogin">
-                        <FontAwesomeIcon icon={["fab", "facebook-f"]} />
-                    </button>
-                    <button className="socialLogin">
-                        <FontAwesomeIcon icon={["fab", "google"]} />
-                    </button>
-                    <button className="socialLogin">
-                        <FontAwesomeIcon icon={["fab", "linkedin-in"]} />
-                    </button>
-                </div> */}
-                {/* <span className="standardText">Or use your email instead</span> */}
                 <div className="field">
                     <div className="customInput">
                         <FontAwesomeIcon className="inputicon" icon="envelope" />

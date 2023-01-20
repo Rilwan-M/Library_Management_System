@@ -31,18 +31,6 @@ class Login extends PureComponent {
         {this.props.loginProcessing && !this.props.loggedIn ? "Logging.." : ""}
         <Link to="/dashboard"></Link>
         <h1 className="heading">Sign in to Library</h1>
-        {/* <div className="socialLogins">
-          <button className="socialLogin">
-            <FontAwesomeIcon icon={["fab", "facebook-f"]} />
-          </button>
-          <button className="socialLogin">
-            <FontAwesomeIcon icon={["fab", "google"]} />
-          </button>
-          <button className="socialLogin">
-            <FontAwesomeIcon icon={["fab", "linkedin-in"]} />
-          </button>
-        </div> */}
-        {/* <span className="standardText">Or use your email instead</span> */}
         <div className="field">
           <div className="customInput">
             <FontAwesomeIcon icon="envelope" className="inputicon" />
@@ -71,9 +59,6 @@ class Login extends PureComponent {
             />
           </div>
         </div>
-        {/* <div className="field">
-          <span className="linkfield">Forgot Password?</span>
-        </div> */}
         <div className="field submitfield">
           <input
             className="submit"

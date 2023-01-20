@@ -16,15 +16,15 @@ function App() {
   return (
     <div className="App">
       <div className="AppGlass">
-        <div>
+        {/* <div>
           <Sidebar />
-        </div>
+        </div> */}
         <div className="table">
           <Routes>
             <Route exact path="/" element={<GetStarted />} />
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/books" element={<BookDetails />} />
             <Route path="/users" element={<UserDetails />} />
             <Route path="/checkout" element={<CheckoutDetails />} />

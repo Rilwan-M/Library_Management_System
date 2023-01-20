@@ -1,5 +1,8 @@
 .loginForm {
     padding-top: 6em;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
   }
   
   .heading {
