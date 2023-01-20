@@ -53,5 +53,5 @@
 .table {
   display: grid;
   place-items: left;
-  margin: 25px;
+  /* margin: 25px; */
 }

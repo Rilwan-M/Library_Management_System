@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 # Set up the database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/library'
+# app.config['SQLALCHEMY_DATABASE_URI'] = "host=bookhub-server.postgres.database.azure.com port=5432 dbname=bookhub user=bookhubadmin@bookhub-server password=assignment@1234 sslmode=require"
 db = SQLAlchemy(app)
 CORS(app)
 

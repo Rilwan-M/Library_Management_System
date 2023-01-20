@@ -1,111 +1,181 @@
-import React, { PureComponent } from "react";
-import "./Login.css";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { startLogin } from "../../actions/actions";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import { Grid, TextField } from "@material-ui/core";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import { useNavigate } from "react-router";
+import axios from "axios";
 
-class Login extends PureComponent {
-  constructor() {
-    super();
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+    // display: "flex",
+    // flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    maxWidth: 450,
+    minWidth: 75,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+  grid: {
+    margin: theme.spacing(2),
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  addButton: {
+    margin: theme.spacing(1),
+    backgroundColor: "#ff1493",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#ff69b4",
+    },
+  },
+}));
 
-    this.state = {
-      email: "",
-      password: ""
-    };
-  }
+const AddBook = () => {
+  const navigate = useNavigate();
+  const classes = useStyles();
+  const [formData, setFormData] = useState({
+    title: "",
+    author: "",
+    publisher: "",
+    isbn: "",
+    description: "",
+    available: false,
+  });
 
-  handleChange = e => this.setState({ [e.target.name]: e.target.value });
-
-  login = e => {
-    e.preventDefault();
-    this.setState({ email: "", password: "" });
-    this.props.login(this.state);
-    this.props.history.push("/dashboard");
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // try {
+    //   await axios.post("http://localhost:5000/books", formData);
+    //   alert("Book added successfully");
+    //   console.log(formData);
+    //   setFormData({
+    //     title: "",
+    //     author: "",
+    //     publisher: "",
+    //     isbn: "",
+    //     description: "",
+    //     available: false,
+    //   });
+    //   navigate("/");
+    // } catch (error) {
+    //   console.error(error);
+    // }
+    navigate("/dashboard");
   };
 
-  render() {
-    return (
-      <form className="loginForm">
-        {this.props.loggedIn ? "Logged in" : ""}
-        {this.props.loginProcessing && !this.props.loggedIn ? "Logging.." : ""}
-        <Link to="/dashboard"></Link>
-        <h1 className="heading">Sign in to Library</h1>
-        {/* <div className="socialLogins">
-          <button className="socialLogin">
-            <FontAwesomeIcon icon={["fab", "facebook-f"]} />
-          </button>
-          <button className="socialLogin">
-            <FontAwesomeIcon icon={["fab", "google"]} />
-          </button>
-          <button className="socialLogin">
-            <FontAwesomeIcon icon={["fab", "linkedin-in"]} />
-          </button>
-        </div> */}
-        {/* <span className="standardText">Or use your email instead</span> */}
-        <div className="field">
-          <div className="customInput">
-            <FontAwesomeIcon icon="envelope" className="inputicon" />
-            <input
-              className="inputfield"
-              type="email"
-              placeholder="Email.."
-              autoComplete="username"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
-        <div className="field">
-          <div className="customInput">
-            <FontAwesomeIcon icon="key" className="inputicon" />
-            <input
-              className="inputfield"
-              type="password"
-              placeholder="Password.."
-              autoComplete="current-password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
-        {/* <div className="field">
-          <span className="linkfield">Forgot Password?</span>
-        </div> */}
-        <div className="field submitfield">
-          <input
-            className="submit"
-            type="submit"
-            value="SIGN IN"
-            onClick={this.login}
-          />
-        </div>
-        <div className="field signupfield">
-          <span className="linkfield">
-            <Link to="/register">New User? Sign up here</Link>
-          </span>
-        </div>
-      </form>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return {
-    loggedIn: state.loggedIn,
-    loginProcessing: state.loginProcessing
-  };
+  return (
+    <Grid container className={classes.grid}>
+      <Grid item className={classes.grid} xs={12}>
+        <form className={classes.formControl} onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                id="email"
+                label="E-mail"
+                variant="outlined"
+                fullWidth
+                value={formData.email}
+                onChange={handleChange}
+                name="email"
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="password"
+                label="Password"
+                variant="outlined"
+                fullWidth
+                value={formData.password}
+                onChange={handleChange}
+                name="password"
+                required
+              />
+            </Grid>
+            {/* <Grid item xs={12}>
+              <TextField
+                id="publisher"
+                label="Publisher"
+                variant="outlined"
+                fullWidth
+                value={formData.publisher}
+                onChange={handleChange}
+                name="publisher"
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="isbn"
+                label="ISBN"
+                variant="outlined"
+                fullWidth
+                value={formData.isbn}
+                onChange={handleChange}
+                name="isbn"
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                id="description"
+                label="Description"
+                variant="outlined"
+                fullWidth
+                value={formData.description}
+                onChange={handleChange}
+                name="description"
+                required
+              />
+            </Grid> */}
+            {/* Other form fields */}
+            {/* <Grid item xs={12}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="available"
+                    checked={formData.available}
+                    onChange={handleChange}
+                    color="primary"
+                  />
+                }
+                label="Available"
+              />
+            </Grid> */}
+            <Grid item xs={12}>
+              <Button
+                variant="contained"
+                className={classes.addButton}
+                type="submit"
+              >
+                Log In
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Grid>
+    </Grid>
+  );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    login: data => dispatch(startLogin(data))
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+export default AddBook;
