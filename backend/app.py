@@ -15,7 +15,7 @@ import api.api_checkout as CheckoutApi
 app = Flask(__name__)
 
 # Set up the database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/library'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@localhost/library'
 db = SQLAlchemy(app)
 CORS(app)
 
