@@ -30,13 +30,15 @@ def create_user():
         return jsonify([user.serialize() for user in users])
 
 
-# getTING a specific user id
-@api_user.route('/users/<int:id>', methods=['GET',])
-def get_user(id):
-    user = User.query.get(id)
+# get user by email
+@api_user.route('/users/<string:email>', methods=['GET'])
+def get_user(email):
+    user = User.query.filter_by(email=email).first()
     if user is None:
         return jsonify({'error': 'User not found'}), 404
-    return jsonify(user.serialize())
+    if user.password != request.args.get('password'):
+        return jsonify({'error': 'Incorrect password'}), 401
+    return jsonify(user.serialize()), 200
 
 
 @api_user.route('/users/<int:id>', methods=['PUT'])

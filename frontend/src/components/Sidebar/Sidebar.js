@@ -5,8 +5,10 @@ import Logo from "../../imgs/logo.png";
 import { SidebarData } from "../Data/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 import { useEffect } from "react";
+
+import { createBrowserHistory } from "history";
 const Sidebar = () => {
   // const [selected, setSelected] = useState(0);
   const [expanded, setExpaned] = useState(true);
@@ -55,9 +57,15 @@ const Sidebar = () => {
               <div
                 className={selected === index ? "menuItem active" : "menuItem"}
                 key={index}
-                onClick={() => setSelected(index)}
+                onClick={() => {
+                  setSelected(index);
+                }}
               >
-                <Link className="custom-link" to={item.link}>
+                <Link
+                  className="custom-link"
+                  to={{ pathname: item.link }}
+                  replace
+                >
                   <item.icon />
                   {item.heading}
                 </Link>

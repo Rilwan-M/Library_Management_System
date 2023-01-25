@@ -8,6 +8,8 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 
+import "../../App.css";
+import Sidebar from "../Sidebar/Sidebar";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -78,7 +80,7 @@ const EditBook = () => {
     event.preventDefault();
 
     axios
-      .put(`http://localhost:5000/books/${id}`, formData)
+      .put(`https://bookhubbackend.azurewebsites.net/books/${id}`, formData)
       .then((res) => {
         // console.log(res);
         console.log(res.data);
@@ -91,7 +93,7 @@ const EditBook = () => {
           description: "",
           available: false,
         });
-        navigate("/");
+        navigate("/books");
       })
       .catch((error) => {
         console.log(error);

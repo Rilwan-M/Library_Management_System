@@ -8,12 +8,13 @@ import {
   UilSignout,
 } from "@iconscout/react-unicons";
 
+import UserDetails from "../UserDetails";
 // Sidebar Data
 export const SidebarData = [
   {
     icon: UilEstate,
     heading: "Dashboard",
-    link: "/",
+    link: "dashboard",
   },
   {
     icon: UilBooks,
@@ -41,3 +42,5 @@ export const SidebarData = [
   //   link: "signout",
   // },
 ];
+
+export const components = [{ heading: "Book Readers", component: UserDetails }];

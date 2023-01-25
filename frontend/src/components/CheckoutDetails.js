@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { fetchCheckout } from "../actions/FetchCheckoutAction";
 import BasicTable from "./Table/BasicTable";
 
+import CheckoutTable from "./Table/CheckoutTable";
+
 //headers for Table
 const headers = [
   { name: "Checkout ID", key: "id" },
@@ -29,22 +31,21 @@ function CheckoutDetails({ checkout, isLoading, error, fetchCheckout }) {
   }
 
   return (
-    <ul>
-      {/* {books.map((book) => (
-            <li key={book.id}>
-              <h2>{book.title}</h2>
-              <p>Author: {book.author}</p>
-    
-              <p>Description: {book.description}</p>
-            </li>
-           
-          ))} */}
-      <BasicTable
+    <div>
+      {/* {checkout.map((check) => (
+        <li key={check.id}>
+          <h2>Check:{check.book_id}</h2>
+          <p>User: {check.user_id}</p>
+
+          <p>Status: {check.status}</p>
+        </li>
+      ))} */}
+      <CheckoutTable
         data={checkout}
         title="Books CheckOut Details"
         headers={headers}
       />
-    </ul>
+    </div>
   );
 }
 

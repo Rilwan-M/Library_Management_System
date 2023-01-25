@@ -27,37 +27,24 @@
   font-family: "Inter", sans-serif;
 }
 
-.AppGlass {
-  display: grid;
-  height: 97%;
-  width: 97%;
-  background: var(--glass);
-  border-radius: 2rem;
-  gap: 16px;
-
-  overflow: hidden;
-}
-
-/* @media screen and (max-width: 1200px) {
-  .AppGlass {
-    overflow-y: scroll;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .AppGlass {
-    grid-template-columns: 1fr;
-  }
-} */
-
 .content {
   display: grid;
   gap: 16px;
   grid-template-columns: 18rem auto;
 }
+.AppGlass {
+  height: 97%;
+  width: 97%;
+  background: var(--glass);
+  border-radius: 2rem;
+  /* gap: 16px;
+  grid-template-columns: 11rem auto; */
+  overflow: hidden;
+}
+
 @media screen and (max-width: 1200px) {
   .content {
-    grid-template-columns: 20% auto;
+    grid-template-columns: 25% auto;
     overflow-y: scroll;
   }
 }

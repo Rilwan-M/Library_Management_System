@@ -43,16 +43,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddBook = () => {
+const Login = (props) => {
   const navigate = useNavigate();
   const classes = useStyles();
   const [formData, setFormData] = useState({
-    title: "",
-    author: "",
-    publisher: "",
-    isbn: "",
-    description: "",
-    available: false,
+    email: "",
+    password: "",
   });
 
   const handleChange = (event) => {
@@ -64,29 +60,18 @@ const AddBook = () => {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // try {
-    //   await axios.post("http://localhost:5000/books", formData);
-    //   alert("Book added successfully");
-    //   console.log(formData);
-    //   setFormData({
-    //     title: "",
-    //     author: "",
-    //     publisher: "",
-    //     isbn: "",
-    //     description: "",
-    //     available: false,
-    //   });
-    //   navigate("/");
-    // } catch (error) {
-    //   console.error(error);
-    // }
     navigate("/dashboard");
   };
 
   return (
     <Grid container className={classes.grid}>
       <Grid item className={classes.grid} xs={12}>
-        <form className={classes.formControl} onSubmit={handleSubmit}>
+        <form
+          className={classes.formControl}
+          onSubmit={(event) =>
+            props.handleLogin(event, formData.email, formData.password)
+          }
+        >
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -112,56 +97,7 @@ const AddBook = () => {
                 required
               />
             </Grid>
-            {/* <Grid item xs={12}>
-              <TextField
-                id="publisher"
-                label="Publisher"
-                variant="outlined"
-                fullWidth
-                value={formData.publisher}
-                onChange={handleChange}
-                name="publisher"
-                required
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                id="isbn"
-                label="ISBN"
-                variant="outlined"
-                fullWidth
-                value={formData.isbn}
-                onChange={handleChange}
-                name="isbn"
-                required
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                id="description"
-                label="Description"
-                variant="outlined"
-                fullWidth
-                value={formData.description}
-                onChange={handleChange}
-                name="description"
-                required
-              />
-            </Grid> */}
-            {/* Other form fields */}
-            {/* <Grid item xs={12}>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name="available"
-                    checked={formData.available}
-                    onChange={handleChange}
-                    color="primary"
-                  />
-                }
-                label="Available"
-              />
-            </Grid> */}
+
             <Grid item xs={12}>
               <Button
                 variant="contained"
@@ -178,4 +114,4 @@ const AddBook = () => {
   );
 };
 
-export default AddBook;
+export default Login;
