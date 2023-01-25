@@ -65,7 +65,10 @@ const AddBook = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:5000/books", formData);
+      await axios.post(
+        "https://bookhubbackend.azurewebsites.net/books",
+        formData
+      );
       alert("Book added successfully");
       console.log(formData);
       setFormData({
@@ -76,7 +79,7 @@ const AddBook = () => {
         description: "",
         available: false,
       });
-      navigate("/");
+      navigate("/books");
     } catch (error) {
       console.error(error);
     }

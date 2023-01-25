@@ -12,7 +12,9 @@ export function fetchBooks() {
   return async function (dispatch) {
     try {
       dispatch(fetchBooksRequest());
-      const response = await fetch("http://localhost:5000/books");
+      const response = await fetch(
+        "https://bookhubbackend.azurewebsites.net/books"
+      );
       const data = await response.json();
       // console.log(data);
       dispatch(fetchBooksSuccess(data));

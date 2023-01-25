@@ -12,7 +12,9 @@ export function fetchCheckout() {
   return async function (dispatch) {
     try {
       dispatch(fetchCheckoutRequest());
-      const response = await fetch("http://localhost:5000/checkout");
+      const response = await fetch(
+        "https://bookhubbackend.azurewebsites.net/checkout"
+      );
       const data = await response.json();
       console.log(data);
       dispatch(fetchCheckoutSuccess(data));

@@ -15,7 +15,18 @@ import book1 from "../../imgs/img1.jpeg";
 import book2 from "../../imgs/img2.jpeg";
 import book3 from "../../imgs/img3.jpeg";
 
+import "../../App.css";
+import Sidebar from "../Sidebar/Sidebar";
 const useStyles = makeStyles((theme) => ({
+  rootr: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    // fontFamily: "Inter", sansserif
+  },
+
   root: {
     display: "flex",
     flexDirection: "column",
@@ -23,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     // backgroundColor: theme.palette.background.default,
     // background: "#ffe0e0",
-    minHeight: "100vh",
+    // minHeight: "100vh",
   },
   title: {
     fontSize: "2rem",
@@ -61,53 +72,59 @@ const Dashboard = () => {
   const { animate } = motion();
 
   return (
-    <Container className={classes.root} maxWidth="md">
-      <Typography
-        className={classes.title}
-        variant="h2"
-        component="h1"
-        animate={animate}
-      >
-        Welcome to our Library Management System
-      </Typography>
-      <Typography className={classes.description} variant="body1" component="p">
-        Here you can search, borrow and return books, view your account
-        information and more.
-      </Typography>
+    <div>
+      <div className={classes.root} maxWidth="md">
+        <Typography
+          className={classes.title}
+          variant="h2"
+          component="h1"
+          animate={animate}
+        >
+          Welcome to our Library Management System
+        </Typography>
+        <Typography
+          className={classes.description}
+          variant="body1"
+          component="p"
+        >
+          Here you can search, borrow and return books, view your account
+          information and more.
+        </Typography>
 
-      <Grid container spacing={2} className={classes.cardContainer}>
-        <Grid item xs={12} sm={4}>
-          <Card className={classes.card}>
-            <CardMedia className={classes.cardMedia} image={book1} />
-            {/* <CardContent>
+        <Grid container spacing={2} className={classes.cardContainer}>
+          <Grid item xs={12} sm={4}>
+            <Card className={classes.card}>
+              <CardMedia className={classes.cardMedia} image={book1} />
+              {/* <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
                 Book 1
               </Typography>
             </CardContent> */}
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Card className={classes.card}>
-            <CardMedia className={classes.cardMedia} image={book2} />
-            {/* <CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Card className={classes.card}>
+              <CardMedia className={classes.cardMedia} image={book2} />
+              {/* <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
                 Book 1
               </Typography>
             </CardContent> */}
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Card className={classes.card}>
-            <CardMedia className={classes.cardMedia} image={book3} />
-            {/* <CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Card className={classes.card}>
+              <CardMedia className={classes.cardMedia} image={book3} />
+              {/* <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
                 Book 1
               </Typography>
             </CardContent> */}
-          </Card>
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </div>
+    </div>
   );
 };
 

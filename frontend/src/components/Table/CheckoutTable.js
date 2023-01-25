@@ -32,7 +32,7 @@ const makeStyle = (status) => {
   }
 };
 
-const BasicTable = (props) => {
+const CheckoutTable = (props) => {
   const navigate = useNavigate();
   const { data, title, headers } = props;
 
@@ -65,22 +65,6 @@ const BasicTable = (props) => {
           .catch((error) => {
             console.log(error);
             alert("Error deleting user");
-            navigate("/dashboard");
-          });
-        break;
-
-      case "Books CheckOut Details":
-        axios
-          .delete(`https://bookhubbackend.azurewebsites.net/checkout/${id}`)
-          .then((res) => {
-            // console.log(res);
-            console.log(res.data);
-            alert("Checkout deleted Successfully!!");
-            navigate("/dashboard");
-          })
-          .catch((error) => {
-            console.log(error);
-            alert("Error deleting checkout");
             navigate("/dashboard");
           });
         break;
@@ -121,35 +105,11 @@ const BasicTable = (props) => {
                   return (
                     <TableCell align="left">
                       {/* this is for boolean type ternary operator */}
-                      {typeof item[header.key] === "boolean" ? (
-                        item[header.key] ? (
-                          <span
-                            className="status"
-                            style={makeStyle("Available")}
-                          >
-                            Available
-                          </span>
-                        ) : (
-                          <span
-                            className="status"
-                            style={makeStyle("Not returned yet")}
-                          >
-                            Not returned yet
-                          </span>
-                        )
-                      ) : (
-                        item[header.key]
-                      )}
+                      {item[header.key]}
                     </TableCell>
                   );
                 })}
                 <TableCell className="icon">
-                  {title === "Book Details" && (
-                    <Link to={`/books/${item.id}`}>
-                      <UilEdit className="edit-icon" />
-                    </Link>
-                  )}
-
                   <UilTrashAlt
                     className="delete-icon"
                     onClick={() => handleDelete(item.id, title)}
@@ -164,4 +124,4 @@ const BasicTable = (props) => {
   );
 };
 
-export default BasicTable;
+export default CheckoutTable;

@@ -10,7 +10,7 @@ export function FetchCheckoutReducer(state = initialState, action) {
     case "FETCH_CHECKOUT_REQUEST":
       return { ...state, isLoading: true };
     case "FETCH_CHECKOUT_SUCCESS":
-      return { ...state, users: action.checkout, isLoading: false };
+      return { ...state, checkout: action.checkout, isLoading: false };
     case "FETCH_CHECKOUT_FAILURE":
       return { ...state, error: action.error, isLoading: false };
     default:

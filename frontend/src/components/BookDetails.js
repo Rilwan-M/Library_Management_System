@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { fetchBooks } from "../actions/FetchBookAction";
 import BasicTable from "./Table/BasicTable";
 
+import "../App.css";
+
 //headers for Book_Details Table
 const headers = [
   { name: "Book_ID", key: "id" },
@@ -30,18 +32,9 @@ function BookDetails({ books, isLoading, error, fetchBooks }) {
   }
 
   return (
-    <ul>
-      {/* {books.map((book) => (
-          <li key={book.id}>
-            <h2>{book.title}</h2>
-            <p>Author: {book.author}</p>
-  
-            <p>Description: {book.description}</p>
-          </li>
-         
-        ))} */}
+    <div>
       <BasicTable data={books} title="Book Details" headers={headers} />
-    </ul>
+    </div>
   );
 }
 

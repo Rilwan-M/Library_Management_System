@@ -12,7 +12,9 @@ export function fetchUsers() {
   return async function (dispatch) {
     try {
       dispatch(fetchUsersRequest());
-      const response = await fetch("http://localhost:5000/users");
+      const response = await fetch(
+        "https://bookhubbackend.azurewebsites.net/users"
+      );
       const data = await response.json();
       // console.log(data);
       dispatch(fetchUsersSuccess(data));

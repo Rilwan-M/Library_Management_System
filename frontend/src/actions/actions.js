@@ -1,16 +1,11 @@
 import axios from "axios";
-import {
-  LOGIN,
-  REGISTER,
-  LOGINPROCESSING,
-  REGISTERING
-} from "./actionType";
+import { LOGIN, REGISTER, LOGINPROCESSING, REGISTERING } from "./actionType";
 
 export const startLogin = (content) => {
   return (dispatch) => {
     dispatch(loginProcessing());
     axios
-      .post("https://6q7yl104k.sse.codesandbox.io/login", content)
+      .post("https://bookhubbackend.azurewebsites.net/login", content)
       .then((res) => {
         debugger;
         dispatch(login(content));
@@ -34,27 +29,27 @@ export const startRegister = (content) => {
 const loginProcessing = () => {
   return {
     type: LOGINPROCESSING,
-    payload: ""
+    payload: "",
   };
 };
 
 const login = (content) => {
   return {
     type: LOGIN,
-    payload: content
+    payload: content,
   };
 };
 
 const registerProcessing = () => {
   return {
     type: REGISTERING,
-    payload: ""
+    payload: "",
   };
 };
 
 export const register = (content) => {
   return {
     type: REGISTER,
-    payload: content
+    payload: content,
   };
 };
