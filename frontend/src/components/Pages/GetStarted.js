@@ -11,7 +11,8 @@ const GetStarted = () => {
       <div className="GetStarted">
         <div className="l">
           <div className="firstline">
-            “The only thing that you absolutely have to know, is the location of the library.”
+            “The only thing that you absolutely have to know, is the location of
+            the library.”
             <div className="para">
               <div className="first">
                 <p>Get into library</p>
@@ -21,7 +22,7 @@ const GetStarted = () => {
               variant="contained"
               onClick={() => navigate("/login")}
               sx={{
-                backgroundColor: "#8FBF75 ",
+                backgroundColor: "#ff1493",
                 maxWidth: "50%",
                 alignItems: "center",
                 textAlign: "center",

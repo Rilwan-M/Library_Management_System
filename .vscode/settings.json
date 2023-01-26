@@ -1,3 +1,5 @@
 {
-  "python.analysis.typeCheckingMode": "basic"
+  "python.analysis.typeCheckingMode": "basic",
+  "appService.defaultWebAppToDeploy": "/subscriptions/0f024c72-52d6-4a83-98aa-7b34f6a43797/AppServices/subscriptions/0f024c72-52d6-4a83-98aa-7b34f6a43797/resourceGroups/mylibrary/providers/Microsoft.Web/sites/bookhubR",
+  "appService.deploySubpath": "backend"
 }

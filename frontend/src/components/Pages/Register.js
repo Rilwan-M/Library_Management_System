@@ -11,6 +11,7 @@ class Register extends PureComponent {
         super();
 
         this.state = {
+            username:"",
             email: "",
             password: "",
             confirmPassword: ""
@@ -21,19 +22,19 @@ class Register extends PureComponent {
 
     register = e => {
         e.preventDefault();
-        const { email, password, confirmPassword } = this.state;
-        this.setState({ email: "", password: "", confirmPassword: "" });
-        console.log(email, password, confirmPassword);
+        const { username,email, password, confirmPassword } = this.state;
+        this.setState({  username:"",email: "", password: "", confirmPassword: "" });
+        console.log(username,email, password, confirmPassword);
         this.props.register(this.state);
     };
 
     render() {
-        const { email, password, confirmPassword } = this.state;
+        const { username,email, password, confirmPassword } = this.state;
         return (
             <form className="loginForm">
                 {this.props.registered ? "Registered" : ""}
                 {this.props.registering && !this.props.registered ? "Registering" : ""}
-                <h1 className="heading">Create Account</h1>
+                <h1 className="heading">Create an Account</h1>
                 <div className="field">
                     <div className="customInput">
                         <FontAwesomeIcon className="inputicon" icon="envelope" />
@@ -47,6 +48,21 @@ class Register extends PureComponent {
                             onChange={this.handleChange}
                         />
                     </div>
+                </div>
+                <div className="field">
+                    <div className="customInput">
+                        <FontAwesomeIcon className="inputicon" icon="envelope" />
+                        <input
+                            className="inputfield"
+                            type="text"
+                            placeholder="User Name"
+                            autoComplete="username"
+                            name="username"
+                            value={username}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+
                 </div>
                 <div className="field">
                     <div className="customInput">

@@ -8,6 +8,7 @@ from flask_cors import CORS
 # from models import Book, User
 
 # import apis
+# import librarian.py 
 import api.api_book as BookApi
 import api.api_user as UserApi
 import api.api_checkout as CheckoutApi
@@ -55,7 +56,7 @@ class CheckOut(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     book_id = db.Column(db.Integer, db.ForeignKey('book.id'), nullable=False)
     check_out_date = db.Column(
-        db.DateTime, nullable=False, default=datetime.utcnow)
+    db.DateTime, nullable=False, default=datetime.utcnow)
     due_date = db.Column(db.DateTime, nullable=False)
     return_date = db.Column(db.DateTime)
     status = db.Column(db.String(20), nullable=False)
